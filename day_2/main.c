@@ -1,7 +1,7 @@
 #include "../blib.h"
 #include "main.h"
 
-t_result	get_player_result(char c)
+static t_result	get_player_result(char c)
 {
 	if (c == 'A')
 		return (ROCK);
@@ -12,7 +12,7 @@ t_result	get_player_result(char c)
 	return (0);
 }
 
-t_result	get_opponent_result(char c)
+static t_result	get_opponent_result(char c)
 {
 	if (c == 'X')
 		return (ROCK);
@@ -23,13 +23,13 @@ t_result	get_opponent_result(char c)
 	return (0);
 }
 
-void	set_match_values(char *line, t_match *match)
+static void	set_match_values(char *line, t_match *match)
 {
 	match->opponent = get_player_result(line[0]);
 	match->player = get_opponent_result(line[2]);
 }
 
-int	get_played_score(t_match *match)
+static int	get_played_score(t_match *match)
 {
 	if (match->player == ROCK)
 		return (1);
@@ -40,7 +40,7 @@ int	get_played_score(t_match *match)
 	return (0);
 }
 
-int	get_outcome_score(t_match *match)
+static int	get_outcome_score(t_match *match)
 {
 	const int result_grid[3][3] = {
 		{ 3, 6, 0 },
@@ -50,7 +50,7 @@ int	get_outcome_score(t_match *match)
 	return (result_grid[(int)match->opponent][(int)match->player]);
 }
 
-int	score_match(char *line, t_match *match)
+static int	score_match(char *line, t_match *match)
 {
 	int	score;
 
@@ -61,7 +61,7 @@ int	score_match(char *line, t_match *match)
 	return (score);
 }
 
-unsigned long	get_total_score(FILE *stream, t_match *match)
+static unsigned long	get_total_score(FILE *stream, t_match *match)
 {
 	unsigned long	score;
 	char			*line;
