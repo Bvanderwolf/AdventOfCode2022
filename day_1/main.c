@@ -40,12 +40,8 @@ int	main()
 {
 	FILE	*stream;
 
-	stream = fopen("input.txt", "r");
-	if (stream == NULL)
-	{
-		perror("failed opening input text file.");
+	if (!open_input(&stream))
 		return (EXIT_FAILURE);
-	}
 	print_largest_number(stream);
 	fclose(stream);
 	return (EXIT_SUCCESS);
