@@ -10,6 +10,8 @@
 #include <unistd.h>
 #include <string.h>
 
-int	open_input(FILE **stream);
+int		open_input(FILE **stream);
+char	*strrchr_pred(char *str, int (*predicate)(int c));
+char	*strchr_pred_n(char *str, int (*predicate)(int c), int n);
 
 #endif
