@@ -1,3 +1,8 @@
+# VSCode files
+C_AdventOfCode22/.vscode
 a.out
-.vscode
-.idea
+
+# Rider files
+C#_AdventOfCode22/.idea
+C#_AdventOfCode22/*/bin/
+C#_AdventOfCode22/*/obj/
